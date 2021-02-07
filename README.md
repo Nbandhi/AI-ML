@@ -1,6 +1,6 @@
 <h1 align=center><font size = 5>TIC TAC TOE </font></h1>
 
-## Using Minimax, implement an AI to play Tic-Tac-Toe optimally in Python.
+### An AI to play Tic-Tac-Toe optimally using MINMAX and Alpha-Beta pruning in Python.
 
 <img align=center src='board 1.PNG'>
 
