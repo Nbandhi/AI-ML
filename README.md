@@ -1,3 +1,3 @@
 # TIC-TAC-TOE 
 
-![alt text](image.jpg)
+![alt text](board 1.png)
