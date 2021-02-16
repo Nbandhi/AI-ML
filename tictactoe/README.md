@@ -13,4 +13,4 @@
  
  # To Test
  
- run python tictactoe.py
+ run python runner.py

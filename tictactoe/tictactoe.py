@@ -1,160 +1,217 @@
-import sys
-import subprocess
-import time
-import pkg_resources
+#!/usr/bin/env python
+# coding: utf-8
 
-required = {'pygame'}
-installed = {pkg.key for pkg in pkg_resources.working_set}
-missing = required - installed
+# In[ ]:
 
-if missing:
-    python = sys.executable
-    subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
+"""
+Tic Tac Toe Player
+"""
 
-import pygame
+# In[ ]:
 
-import tictactoelogic as ttt
+import math
+import copy
 
-pygame.init()
-size = width, height = 600, 400
+# In[ ]:
 
-# Colors
-black = (0, 0, 0)
-white = (255, 255, 255)
+X = "X"
+O = "O"
+EMPTY = None
 
-screen = pygame.display.set_mode(size)
+# In[ ]:
 
-mediumFont = pygame.font.Font("OpenSans-Regular.ttf", 28)
-largeFont = pygame.font.Font("OpenSans-Regular.ttf", 40)
-moveFont = pygame.font.Font("OpenSans-Regular.ttf", 60)
-
-user = None
-board = ttt.initial_state()
-ai_turn = False
-
-while True:
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
-
-    screen.fill(black)
-
-    # Let user choose a player.
-    if user is None:
-
-        # Draw title
-        title = largeFont.render("Play Tic-Tac-Toe", True, white)
-        titleRect = title.get_rect()
-        titleRect.center = ((width / 2), 50)
-        screen.blit(title, titleRect)
-
-        # Draw buttons
-        playXButton = pygame.Rect((width / 8), (height / 2), width / 4, 50)
-        playX = mediumFont.render("Play as X", True, black)
-        playXRect = playX.get_rect()
-        playXRect.center = playXButton.center
-        pygame.draw.rect(screen, white, playXButton)
-        screen.blit(playX, playXRect)
-
-        playOButton = pygame.Rect(5 * (width / 8), (height / 2), width / 4, 50)
-        playO = mediumFont.render("Play as O", True, black)
-        playORect = playO.get_rect()
-        playORect.center = playOButton.center
-        pygame.draw.rect(screen, white, playOButton)
-        screen.blit(playO, playORect)
-
-        # Check if button is clicked
-        click, _, _ = pygame.mouse.get_pressed()
-        if click == 1:
-            mouse = pygame.mouse.get_pos()
-            if playXButton.collidepoint(mouse):
-                time.sleep(0.2)
-                user = ttt.X
-            elif playOButton.collidepoint(mouse):
-                time.sleep(0.2)
-                user = ttt.O
+def initial_state():
+    """
+    Returns starting state of the board.
+    """
+    return [[EMPTY, EMPTY, EMPTY],
+            [EMPTY, EMPTY, EMPTY],
+            [EMPTY, EMPTY, EMPTY]]
 
 
+# In[1]:
+
+
+def player(board):
+    """
+    Returns player who has the next turn on a board.
+    """
+    if not(terminal(board)):
+        if sum([i.count(EMPTY) for i in board]) % 2 == 0:
+            return O
+        else:
+            return X
+
+# In[1]:
+
+
+def actions(board):
+    """
+    Returns set of all possible actions (i, j) available on the board.
+    """
+    
+    possibleActions = []
+    for i in range(0, 3):
+        for j in range(0, 3):
+            if board[i][j] == EMPTY:
+                possibleActions.append((i, j))
+    return possibleActions
+
+
+
+# In[ ]:
+
+
+def result(board, action):
+    """
+    Returns the board that results from making move (i, j) on the board.
+    """
+
+    copyBoard = copy.deepcopy(board)
+    i, j = action
+
+    if copyBoard[i][j] == EMPTY:
+        copyBoard[i][j] = player(board)
+        return copyBoard
     else:
 
-        # Draw game board
-        tile_size = 80
-        tile_origin = (width / 2 - (1.5 * tile_size),
-                       height / 2 - (1.5 * tile_size))
-        tiles = []
-        for i in range(3):
-            row = []
-            for j in range(3):
-                rect = pygame.Rect(
-                    tile_origin[0] + j * tile_size,
-                    tile_origin[1] + i * tile_size,
-                    tile_size, tile_size
-                )
-                pygame.draw.rect(screen, white, rect, 3)
+        print("Invalid move")
 
-                if board[i][j] != ttt.EMPTY:
-                    move = moveFont.render(board[i][j], True, white)
-                    moveRect = move.get_rect()
-                    moveRect.center = rect.center
-                    screen.blit(move, moveRect)
-                row.append(rect)
-            tiles.append(row)
-
-        game_over = ttt.terminal(board)
-        player = ttt.player(board)
+# In[ ]:
 
 
+def winner(board):
+    """
+    Returns the winner of the game, if there is one.
+    """
+    b = board
+    for i in range(3):
+        # Checking for Rows for X or O victory.
+        if (b[i][0] == b[i][1] == b[i][2]):
+            if (b[i][0] == X):
+                return X,'row', i
+            elif (b[i][0] == O):
+                return O,'row', i
 
-        # Show title
-        if game_over:
-            winner = ttt.winner(board)
-            if winner is None:
-                title = f"Game Over: Tie."
-            else:
-                title = f"Game Over: {winner} wins."
-        elif user == player:
-            title = f"Play as {user}"
-        else:
-            title = f"Computer thinking..."
-        title = largeFont.render(title, True, white)
-        titleRect = title.get_rect()
-        titleRect.center = ((width / 2), 30)
-        screen.blit(title, titleRect)
+        # Checking for Columns for X or O victory.
+        elif (b[0][i] == b[1][i] == b[2][i]):
+            if (b[0][i] == X):
+                return X,'col', i
+            elif (b[0][i] == O):
+                return O,'col', i
 
-        # Check for AI move
-        if user != player and not game_over:
-            if ai_turn:
-                time.sleep(0.5)
-                move = ttt.minimax(board)
-                board = ttt.result(board, move)
-                ai_turn = False
-            else:
-                ai_turn = True
+    # Checking for Diagonals for X or O victory.
+    if (b[0][0] == b[1][1] == b[2][2]):
+        if (b[0][0] == X):
+            return X,'dia', 0
+        elif (b[0][0] == O):
+            return O,'dia', 0
+    elif (b[0][2] == b[1][1] == b[2][0]):
+        if (b[0][2] == X):
+            return X,'dia', 2
+        elif (b[0][2] == O):
+            return O,'dia', 2
 
-        # Check for a user move
-        click, _, _ = pygame.mouse.get_pressed()
-        if click == 1 and user == player and not game_over:
-            mouse = pygame.mouse.get_pos()
-            for i in range(3):
-                for j in range(3):
-                    if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
-                        board = ttt.result(board, (i, j))
+    # Else if none of them have won then return None
+    return None, None, None
 
-        if game_over:
-            againButton = pygame.Rect(width / 3, height - 65, width / 3, 50)
-            again = mediumFont.render("Play Again", True, black)
-            againRect = again.get_rect()
-            againRect.center = againButton.center
-            pygame.draw.rect(screen, white, againButton)
-            screen.blit(again, againRect)
-            click, _, _ = pygame.mouse.get_pressed()
-            if click == 1:
-                mouse = pygame.mouse.get_pos()
-                if againButton.collidepoint(mouse):
-                    time.sleep(0.2)
-                    user = None
-                    board = ttt.initial_state()
-                    ai_turn = False
 
-    pygame.display.flip()
+# In[ ]:
+
+
+def terminal(board):
+    """
+    Returns True if game is over, False otherwise.
+    """
+
+    availableMoves = actions(board)
+    xo, _, _ = winner(board)
+    if len(availableMoves) == 0:
+        return True
+    if xo is not None:
+        return True
+    return False
+
+# In[ ]:
+
+
+def utility(board):
+    """
+    Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
+    """
+    xo, _, _ = winner(board)
+
+    if xo == X:
+        return 1
+    elif xo == O:
+        return -1
+    else:
+        return 0
+
+# In[ ]:
+
+def undo(board, row, col):
+    board[row][col] = EMPTY
+
+
+def minimax(board):
+    """
+    Returns the optimal action for the current player on the board.
+    """
+    alpha = -math.inf
+    d = beta = math.inf
+
+    if player(board) == X:
+        bestVal = -math.inf
+        for action in actions(board):
+            value, depth = MIN_value(result(board,action), alpha, beta, 0)
+            if value > bestVal or (value == bestVal and depth < d):
+                move = action
+                bestVal = value
+                d = depth
+    elif player(board) == O:
+        bestVal = math.inf
+        for action in actions(board):
+            value, depth = MAX_value(result(board,action), alpha, beta, 0)
+            if value < bestVal or (value == bestVal and depth < d):
+                move = action
+                bestVal = value
+                d = depth
+
+    return move
+
+def MIN_value(board,alpha,beta,depth):
+
+    if terminal(board):
+        return utility(board), depth
+
+    m = math.inf
+
+    for action in actions(board):
+        value, depth = MAX_value(result(board,action), alpha, beta, depth + 1)
+        m = min(m, value)
+
+        # alpha-beta pruning
+        beta = min(beta, m)
+        if beta <= alpha:
+            break
+
+    return m, depth
+
+def MAX_value(board,alpha,beta,depth):
+    if terminal(board):
+        return utility(board), depth
+
+    m = -math.inf
+
+    for action in actions(board):
+        value, depth = MIN_value(result(board, action), alpha, beta, depth + 1)
+        m = max(m, value)
+
+        # alpha-beta pruning
+        alpha = max(alpha, m)
+        if beta <= alpha:
+            break
+
+    return m, depth
+
