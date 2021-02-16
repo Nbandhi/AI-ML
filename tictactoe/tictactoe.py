@@ -13,7 +13,7 @@ if missing:
 
 import pygame
 
-import tictactoe as ttt
+import tictactoelogic as ttt
 
 pygame.init()
 size = width, height = 600, 400
