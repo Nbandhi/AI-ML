@@ -2,7 +2,7 @@
 
  - <a href='https://github.com/Nbandhi/AI-ML/tree/main/tictactoe'> TicTacToe with MinMax algorithm</a>
  - <a href='https://github.com/Nbandhi/AI-ML/tree/main/minesweeper'>Minesweeper</a>
- - Six Degrees of Separation
- - Neural Network to Calssify Road Signs
+ - <a href='https://github.com/Nbandhi/AI-ML/tree/main/sixdegrees'>Six Degrees of Separation</a?
+ - <a href='https://github.com/Nbandhi/AI-ML/tree/main/road-signs'>Neural Network to Calssify Road Signs</a>
  
 
