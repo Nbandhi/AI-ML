@@ -159,6 +159,12 @@ while True:
     screen.blit(buttonText, buttonRect)
 
     # Display text
+    text = str(len(flags)) + " of " +str(MINES) + " mines found."
+    text = mediumFont.render(text, True, WHITE)
+    textRect = text.get_rect()
+    textRect.center = ((5 / 6) * width, (1 / 2) * height)
+    screen.blit(text, textRect)
+
     text = "Lost" if lost else "Won" if game.mines == flags else ""
     text = mediumFont.render(text, True, WHITE)
     textRect = text.get_rect()

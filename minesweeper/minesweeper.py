@@ -269,12 +269,8 @@ class MinesweeperAI():
         j = random.randint(0,self.width-1)
 
         if (i, j) not in self.moves_made and (i, j) not in self.mines:
-            print(i, j)
             return (i, j)
-        """
-        for i in range(self.height):
-            for j in range(self.width):
-                if (i, j) not in self.moves_made and (i, j) not in self.mines:
-                    return (i, j)
-        """
-        return None
+        elif (i,j) in self.mines:
+            ai.make_random_move()
+
+        #return None
