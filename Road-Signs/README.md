@@ -23,7 +23,7 @@ Build a Convolution Neural Networt to train and classify the road signs provided
 
 ### Model 1
 
-![model1.png](model1.png)
+![model1.png](images/model1.png)
 <h5 align=center>Fig 1.1 - Model 1</h5>
 
 The model consists of a convolution layer of 32 - 3x3 filters utilizing ReLu activation, followed by a MaxPooling layer of 2x2, followed by a fully connected dense layer with 128 nodes utilizing ReLu activation and final output layer with 43 nodes utilizing softmax activation, to classify the output into the 43 different kinds of road signs.
