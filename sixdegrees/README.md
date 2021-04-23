@@ -29,4 +29,6 @@ We will use
  
  # To Test
  
- run python degrees.py large
+ unzip people.zip
+ 
+ run python degrees.py imbd
