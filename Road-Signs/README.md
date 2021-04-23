@@ -44,10 +44,10 @@ The model consists of a convolution layer of 32 - 3x3 filters utilizing ReLu act
   
 The model resulted with an accuracy rate of 96.96.
 
-![first.png](images/first.png)
+![first.png](images/first.PNG)
 <h5 align=center>Fig 1.2 - Model 1: Training Results</h5>
 
-![first_summary.png](images/first_summary.png)
+![first_summary.png](images/first_summary.PNG)
 <h5 align=center>Fig 1.3 - Model 1: Model Summary</h5>
 
 ### Model 2
@@ -75,10 +75,10 @@ The model resulted with an accuracy rate of 97.57.
         
   `
 
-![second.png](images/second.png)
+![second.png](images/second.PNG)
 <h5 align=center>Fig 2.2 - Model 2: Training Results</h5>
 
-![second_summary.png](images/second_summary.png)
+![second_summary.png](images/second_summary.PNG)
 <h5 align=center>Fig 2.3 - Model 2: Model Summary</h5>
 
 ### Model 3
@@ -108,10 +108,10 @@ The model resulted with an accuracy rate of 99.11.
         
   `
 
-![third.png](images/third.png)
+![third.png](images/third.PNG)
 <h5 align=center>Fig 3.2 - Model 3: Training Results</h5>
 
-![third_summary.png](images/third_summary.png)
+![third_summary.png](images/third_summary.PNG)
 <h5 align=center>Fig 3.3 - Model 3: Model Summary</h5>
 
 ### Model 4
@@ -141,10 +141,10 @@ The model resulted with an accuracy rate of 98.60.
         ])
         
   `
-![fourth.png](images/fourth.png)
+![fourth.png](images/fourth.PNG)
 <h5 align=center>Fig 4.2 - Model 4: Training Results</h5>
 
-![fouth_summary.png](images/fourth_summary.png)
+![fouth_summary.png](images/fourth_summary.PNG)
 <h5 align=center>Fig 4.3 - Model 4: Model Summary</h5>
 
 ### Model 5
@@ -176,10 +176,10 @@ The model resulted with an accuracy rate of 98.32.
         
   `
 
-![fifth.png](images/fifth.png)
+![fifth.png](images/fifth.PNG)
 <h5 align=center>Fig 5.2 - Model 5: Training Results</h5>
 
-![fifth_summary.png](images/fifth_summary.png)
+![fifth_summary.png](images/fifth_summary.PNG)
 <h5 align=center>Fig 5.3 - Model 5: Model Summary</h5>
 
 Repeated the above 5 models with the convolution layer using a 5x5 filter.  The best result was model three with an accuracy rate of 99.30
@@ -189,10 +189,10 @@ Repeated the above 5 models with the convolution layer using a 5x5 filter.  The 
 ![model6.png](images/model6.png)
 <h5 align=center>Fig 6.1 - Model 6</h5>
 
-![sixth.png](images/sixth.png)
-<h5 align=center>Fig 6.2 - Model 8: Training Results</h5>
+![sixth.png](images/sixth.PNG)
+<h5 align=center>Fig 6.2 - Model 6: Training Results</h5>
 
-![sixth_summary.png](images/sixth_summary.png)
+![sixth_summary.png](images/sixth_summary.PNG)
 <h5 align=center>Fig 6.3 - Model 6: Model Summary</h5>
 
 ### Model 7
@@ -200,10 +200,10 @@ Repeated the above 5 models with the convolution layer using a 5x5 filter.  The 
 ![model7.png](images/model7.png)
 <h5 align=center>Fig 7.1 - Model 7</h5>
 
-![seventh.png](images/seventh.png)
+![seventh.png](images/seventh.PNG)
 <h5 align=center>Fig 7.2 - Model 7: Training Results</h5>
 
-![seventh_summary.png](images/seventh_summary.png)
+![seventh_summary.png](images/seventh_summary.PNG)
 <h5 align=center>Fig 7.3 - Model 7: Model Summary</h5>
 
 ### Model 8
@@ -211,10 +211,10 @@ Repeated the above 5 models with the convolution layer using a 5x5 filter.  The 
 ![model8.png](images/model8.png)]
 <h5 align=center>Fig 8.1 - Model 8</h5>
 
-![eight.png](images/eight.png)
+![eight.png](images/eight.PNG)
 <h5 align=center>Fig 8.2 - Model 8: Training Results</h5>
 
-![eight_summary.png](images/eight_summary.png)
+![eight_summary.png](images/eight_summary.PNG)
 <h5 align=center>Fig 8.3 - Model 8: Model Summary</h5>
 
 ### Model 9
@@ -222,18 +222,18 @@ Repeated the above 5 models with the convolution layer using a 5x5 filter.  The 
 ![model9.png](images/model9.png)]
 <h5 align=center>Fig 9.1 - Model 9</h5>
 
-![ninth.png](images/ninth.png)
+![ninth.png](images/ninth.PNG)
 <h5 align=center>Fig 9.2 - Model 9: Training Results</h5>
 
-![ninth_summary.png](images/ninth_summary.png)
+![ninth_summary.png](images/ninth_summary.PNG)
 <h5 align=center>Fig 9.3 - Model 9: Model Summary</h5>
 
 ### Model 10
 
-![model10.png](images/model10.png)]
+![model10.png](images/model10.PNG)]
 <h5 align=center>Fig 10.1 - Model 10</h5>
 
-![tenth.png](images/tenth.png)
+![tenth.png](images/tenth.PNG)
 <h5 align=center>Fig 10.2 - Model 10: Training Results</h5>
 
 ![tenth_summary.png](images/tenth_summary.png)
