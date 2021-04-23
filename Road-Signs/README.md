@@ -230,13 +230,13 @@ Repeated the above 5 models with the convolution layer using a 5x5 filter.  The 
 
 ### Model 10
 
-![model10.png](images/model10.PNG)]
+![model10.png](images/model10.png)
 <h5 align=center>Fig 10.1 - Model 10</h5>
 
 ![tenth.png](images/tenth.PNG)
 <h5 align=center>Fig 10.2 - Model 10: Training Results</h5>
 
-![tenth_summary.png](images/tenth_summary.png)
+![tenth_summary.png](images/tenth_summary.PNG)
 <h5 align=center>Fig 10.3 - Model 10: Model Summary</h5>
 
 ## Results and Discussions<a name="results"></a>
