@@ -2,5 +2,6 @@
 
  - TicTacToe with MinMax algorithm
  - Minesweeper
+ - Six Degrees of Separation
  
 
