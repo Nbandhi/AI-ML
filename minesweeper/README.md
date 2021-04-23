@@ -2,14 +2,16 @@
 
 ### The game can be played by the individual or let the AI Bot play the game.
 
-<img align=center src='board 1.PNG'>
+<img align=center src='start.PNG'>
+
+<img align=center src='game.PNG'>
 
 # What's in the Repo?
 
- - A fully playable Tic-Tac-Toe environment that utilizes pygame.
- - A bot trained using the Minimax Algorithm. 
- - tictactoe.py - to the draw the tictactoe board
- - tictactoelogic.py - has the minmax logic
+ - A fully playable Minesweeper environment that utilizes pygame.
+ - A bot trained using knowlege engineering - exploring the concepts of knowledge base and inference alogorithms . 
+ - minewseeper.py - logic to play minesweeper by an individual or the bot
+ - runner.py - to the draw the minesweeper board
  
  # To Test
  
