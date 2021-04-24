@@ -260,5 +260,9 @@ I got better results using a 5x5 filter in the convolution layer, keeping all ot
 
 ## Conclusion<a name="conclusion"></a>
 
-Need to do more experimentation with other combination of pooling layers, other hyper-parameters such as learning rates, optimizers, losses, dropout rate, etc.  
+Used Model 8 for predictions. 
+
+![predictions.png](images/predictions.PNG)
+<h5 align=center>Fig 11 - Predictions Utilizing Model 8</h5>
+
 
