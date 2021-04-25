@@ -5,7 +5,10 @@
 
 ### An AI to play Tic-Tac-Toe optimally using MINMAX and Alpha-Beta pruning in Python.
 
+
 https://user-images.githubusercontent.com/8186089/116002513-1a680900-a5c8-11eb-9126-95569523304b.mp4
+
+
 
 # What's in the Repo?
 
