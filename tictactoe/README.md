@@ -2,7 +2,7 @@
 
 ### An AI to play Tic-Tac-Toe optimally using MINMAX and Alpha-Beta pruning in Python.
 
-<img align=center src='board 1.PNG'>
+<img align=center src='tictactoe.mp4'>
 
 # What's in the Repo?
 
